@@ -1,0 +1,132 @@
+.card-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.card-content {
+    background-color: white;
+    width: 800px;
+    height: auto;
+    border-radius: 18px;
+    display: flex;
+    padding: 25px;
+}
+
+.logo {
+    margin-bottom: 70px;
+}
+
+.card-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 35px;
+    padding-left: 15px;
+}
+
+h5 {
+    color: hsl(186, 14%, 43%);
+    margin-bottom: 5px;
+}
+
+input {
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    background-color: hsl(189, 41%, 97%) !important;
+    border: 2px solid transparent;
+    outline: none;
+    padding: 8px;
+    text-align: right;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: hsl(183, 100%, 15%);
+}
+
+input::placeholder {
+    color: hsl(186, 14%, 43%);
+}
+
+input:focus {
+    border: 2px solid hsl(172, 67%, 45%);
+    transition: 0.1s ease;
+}
+
+.button-box {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+}
+
+button {
+    font-family: 'Space Mono', monospace;
+    width: 100px;
+    padding: 6px 0px;
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    margin-bottom: 13px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: hsla(172, 67%, 45%, 0.5);
+    transition: 0.1s ease;
+}
+
+.input-custom {
+    width: 100px;
+    height: 40px;
+}
+
+.card-right {
+    width: 50%;
+    height: 100%;
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.box-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.box-result h5 {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.box-result h1 {
+    margin: 0;
+    padding: 0;
+    color: hsl(172, 67%, 45%);
+    font-size: 2.5rem;
+}
+
+.box-result p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: hsl(184, 14%, 56%);
+}
+
+.btn-reset {
+    width: 100%;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: hsla(172, 67%, 45%, 0.2);
+    color: hsl(183, 100%, 15%);
+    margin-top: 56px;
+}
+
+.btn-reset:hover {
+    cursor: unset;
+}

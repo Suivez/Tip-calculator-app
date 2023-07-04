@@ -2,10 +2,26 @@ import './Card.css';
 import logo from "../images/logo.svg";
 import iconDollar from "../images/icon-dollar.svg";
 import iconPerson from "../images/icon-person.svg";
+import { useState, useRef } from "react";
 
 function Card() {
 
-    const inputField = (icon) => {
+    const [errorInput, setErrorInput] = useState("");
+    const [isActiveError, setIsActivError] = useState(false);
+    const inputRefBill = useRef(null);
+    const inputRefPercent = useRef(null);
+    const inputRefPeople = useRef("");
+
+    const submitSplitter = (e) => {
+        e.preventDefault();
+
+        if(inputRefPeople.current.value == null) {
+            setErrorInput("Can't be zero");
+            setIsActivError(true);
+        }
+    }
+
+    const inputField = (icon, inputRef, asd) => {
         const inputStyle = {
             background: `url(${icon})`,
             backgroundRepeat: "no-repeat",
@@ -14,7 +30,7 @@ function Card() {
         
         return (
             <div>
-                <input placeholder="0" style={inputStyle}></input>
+                <input placeholder="0" style={{borderColor: isActiveError ? "red" : "", inputStyle}} ref={{inputRef}}></input>
             </div>
         );
     }
@@ -22,7 +38,7 @@ function Card() {
     const button = (value) => {
         return (
             <div>
-                <button>{value}%</button>
+                <button value={value} onClick={e => submitSplitter(e, value)}>{value}%</button>
             </div>
         );
     }
@@ -35,7 +51,7 @@ function Card() {
             <div className="card-content">
                 <div className="card-left">
                     <h5>Bill</h5>
-                    {inputField(iconDollar)}
+                    {inputField(iconDollar, inputRefBill, false)}
                     <h5>Select Tip %</h5>
                     <div className="button-box">
                         {button(5)}
@@ -43,10 +59,13 @@ function Card() {
                         {button(15)}
                         {button(25)}
                         {button(50)}
-                        <input type="text" className="input-custom" placeholder="Custom"></input>
+                        <input type="text" ref={inputRefPercent} className="input-custom" placeholder="Custom"></input>
                     </div>
-                    <h5>Number of People</h5>
-                    {inputField(iconPerson)}
+                    <div className="input-label">
+                        <h5>Number of People</h5>
+                        <p>{errorInput}</p>
+                    </div>
+                    {inputField(iconPerson, inputRefPeople, true)}
                 </div>
                 <div className="card-right">
                     <div className="asd">

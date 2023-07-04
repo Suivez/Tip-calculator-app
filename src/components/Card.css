@@ -33,6 +33,25 @@ h5 {
     margin-bottom: 5px;
 }
 
+.input-label {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-label h5 {
+    margin: 0;
+}
+
+.input-label p {
+    color: red;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+
 input {
     font-family: 'Space Mono', monospace;
     width: 100%;

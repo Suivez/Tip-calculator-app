@@ -224,12 +224,13 @@ button:focus {
 
     button {
         margin: 10px;
-        
+        width: 120px;
     }
 
     .input-custom {
         margin: 10px;
         height: 38px;
+        width: 120px;
     }
 
     .btn-reset-disable, .btn-reset-enable {

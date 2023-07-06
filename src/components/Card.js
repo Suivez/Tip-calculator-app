@@ -53,12 +53,17 @@ function Card() {
         }
     }
 
+    if(isNaN(tipAmount) || isNaN(totalAmount)) {
+        setTipAmount("0.00");
+        setTotalAmount("0.00");
+    }
+
     const resetTipAmounts = () => {
         setTipAmount("0.00");
         setTotalAmount("0.00");
         setIsActiveReset(false);
-        inputRefBill.current.value = 0;
-        inputRefPeople.current.value = 0;
+        inputRefBill.current.value = null;
+        inputRefPeople.current.value = null;
     }
 
     const button = (value) => {
@@ -77,7 +82,7 @@ function Card() {
             <div className="card-content">
                 <div className="card-left">
                     <h5>Bill</h5>
-                    <input className="input-bill" placeholder="0" ref={inputRefBill}></input>
+                    <input className="input-bill" ref={inputRefBill} placeholder="0"></input>
                     <h5>Select Tip %</h5>
                     <div className="button-box">
                         {button(5)}
@@ -91,7 +96,7 @@ function Card() {
                         <h5>Number of People</h5>
                         <p>{errorInput}</p>
                     </div>
-                    <input className="input-people" placeholder="0" style={{borderColor: isActiveError ? "hsl(0, 100%, 68%)" : ""}} ref={inputRefPeople}></input>
+                    <input className="input-people" ref={inputRefPeople} placeholder="0" style={{borderColor: isActiveError ? "hsl(0, 100%, 68%)" : ""}}></input>
                 </div>
                 <div className="card-right">
                     <div className="asd">

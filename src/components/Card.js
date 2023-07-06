@@ -18,15 +18,18 @@ function Card() {
         e.preventDefault();
 
         const countTipAmount = () => {
-            let tipAmount = 0;
-            tipAmount = parseFloat(inputRefBill.current.value, 10) * (parseFloat(e.target.value, 10) / 100) / parseFloat(inputRefPeople.current.value, 10);
-            return tipAmount.toFixed(2);
+            let tipPrice = 0;
+            if(inputCustomPercent >= 0) {
+                tipPrice = parseFloat(inputRefBill.current.value, 10) * (parseFloat(inputCustomPercent, 10) / 100) / parseFloat(inputRefPeople.current.value, 10);
+            }
+            tipPrice = parseFloat(inputRefBill.current.value, 10) * (parseFloat(e.target.value, 10) / 100) / parseFloat(inputRefPeople.current.value, 10);
+            return tipPrice.toFixed(2);
         }
         
         const countTotalAmount = () => {
             let totalAmount = 0;
             totalAmount = (parseFloat(inputRefBill.current.value, 10) / parseFloat(inputRefPeople.current.value, 10)) + parseFloat(countTipAmount(), 10);
-            return totalAmount;
+            return totalAmount.toFixed(2);
         }
         
         if(inputRefPeople.current.value == "") {
@@ -82,7 +85,7 @@ function Card() {
                         {button(15)}
                         {button(25)}
                         {button(50)}
-                        <input type="text" ref={inputRefPercent} className="input-custom" placeholder="Custom"></input>
+                        <input type="text" ref={inputRefPercent} onChange={e => submitSplitter(e)} className="input-custom" placeholder="Custom"></input>
                     </div>
                     <div className="input-label">
                         <h5>Number of People</h5>

@@ -116,7 +116,7 @@ button:focus {
 
 .input-custom {
     width: 100px;
-    height: 40px;
+    height: 38px;
 }
 
 .card-right {
@@ -185,4 +185,59 @@ button:focus {
 .btn-reset-enable:hover {
     cursor: pointer;
     background-color: hsla(172, 67%, 45%, 0.5);
+}
+
+@media (max-width: 820px) {
+    .card-main {
+        height: auto;
+    }
+
+    .card-content {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 0;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+    }
+
+    .card-left {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
+    }
+
+    .card-right {
+        width: 100%;
+    }
+
+    .button-box {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin: 10px;
+        
+    }
+
+    .input-custom {
+        margin: 10px;
+        height: 38px;
+    }
+
+    .btn-reset-disable, .btn-reset-enable {
+        margin: 0;
+    }
+
+    .logo {
+        padding: 35px;
+        margin: 0;
+    }
 }
